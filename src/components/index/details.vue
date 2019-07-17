@@ -560,12 +560,14 @@
 		white-space: nowrap;
 		text-overflow: ellipsis;
 		overflow: hidden;
-		text-align: center;
+		text-align: left;
 		color: black;
 		font-size: 1rem;
 	}
 	.book-detail-info .book-author{
 		font-size: 0.8125rem;
+		margin-left: 0;
+		line-height: 0.8125rem;
 	}
 	.book-detail-info .char-pipe{
 		padding: 0 0.5ch;
@@ -609,6 +611,7 @@
 		margin: 0;
 	}
 	.book-summary{
+		width: auto;
 		padding-right: 1rem;
 		margin-left: 1rem;
 		border-top: 1rem solid transparent;
@@ -669,6 +672,7 @@
 		position: absolute;
 		top: 0;
 		right: 0;
+		margin-top: 0.85rem;
 	}
 	.book-pay{
 		display: block;
