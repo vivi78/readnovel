@@ -502,7 +502,6 @@
 	}
 	.module-header-btn>i{
 		display: inline-block;
-		line-height: 1.5rem;
 		text-align: center;
 		vertical-align: -0.2ex;
 	}
@@ -575,7 +574,7 @@
 		font-size: 0.75rem;
 		line-height: 0.75rem;
 		margin-left: -3px;
-		vertical-align: -0.5ex;
+		vertical-align: middle;
 	}
 	.tag-small-group{
 		position: absolute;

@@ -912,8 +912,8 @@
 	}
 	.module-header-btn>i{
 		display: inline-block;
-		line-height: 0.8rem;
 		text-align: center;
+		vertical-align: -0.1ex;
 	}
 	.book-layout{
 		display: block;

@@ -750,9 +750,8 @@
 	}
 	.module-header-btn>i{
 		display: inline-block;
-		line-height: 1.5rem;
 		text-align: center;
-		vertical-align: -0.2ex;
+		vertical-align: -0.1ex;
 	}
 	.book-layout{
 		display: block;
