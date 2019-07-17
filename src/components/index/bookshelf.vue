@@ -571,7 +571,7 @@
 	}
 	.list-right{
 		display: inline-block;
-		padding: 1.5rem 0.5rem 2rem 9.5rem;
+		padding: 1.5rem 0.5rem 2rem 8.5rem;
 	}
 	.recnew-title{
 		margin-top: 0.5rem;

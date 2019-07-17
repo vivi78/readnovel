@@ -133,7 +133,7 @@
 					<h3 class="module-title">新书抢鲜</h3>
 				</div>
 				<div class="module-header-r">
-					<router-link to="/more" class="module-header-btn">
+					<router-link to="/newbook" class="module-header-btn">
 						更多<i class="iconfont">&#xe627;</i>
 					</router-link>
 				</div>
@@ -221,7 +221,7 @@
 					<h3 class="module-title">排行榜</h3>
 				</div>
 				<div class="module-header-r">
-					<router-link to="/more" class="module-header-btn">
+					<router-link to="/rank" class="module-header-btn">
 						更多<i class="iconfont">&#xe627;</i>
 					</router-link>
 				</div>
@@ -311,7 +311,7 @@
 					<h3 class="module-title">分类推荐</h3>
 				</div>
 				<div class="module-header-r">
-					<router-link to="/more" class="module-header-btn">
+					<router-link to="/category" class="module-header-btn">
 						更多<i class="iconfont">&#xe627;</i>
 					</router-link>
 				</div>
@@ -456,7 +456,7 @@
 					<h3 class="module-title">人气完本</h3>
 				</div>
 				<div class="module-header-r">
-					<router-link to="/more" class="module-header-btn">
+					<router-link to="/finish" class="module-header-btn">
 						更多<i class="iconfont">&#xe627;</i>
 					</router-link>
 				</div>
@@ -490,7 +490,7 @@
 		<!--尾部-->
 		<footer>
 			<div class="footer-link">
-				<router-link to="/index" class="footer-link-a">书架</router-link>
+				<router-link to="/bookshelf" class="footer-link-a">书架</router-link>
 				<router-link to="/index" class="footer-link-a">充值</router-link>
 				<router-link to="/index" class="footer-link-a">帮助</router-link>
 				<router-link to="/index" class="footer-link-a">客户端</router-link>
@@ -633,7 +633,7 @@
 		background: #F6F7F9;
 	}
 	.home-nav-li{
-		width: calc(100% / 5.4);
+		width: calc(100% / 5.3);
 	}
 	.home-nav-a>.icon{
 		width: 36px;
@@ -789,7 +789,7 @@
 		width: 100%;
 	}
 	.home-nav-li{
-		width: calc(100% / 5.4);
+		width: calc(100% / 5.3);
 		margin: 0;
 		display: inline-block;
 		text-align: center;
@@ -912,9 +912,8 @@
 	}
 	.module-header-btn>i{
 		display: inline-block;
-		line-height: 1.5rem;
+		line-height: 0.8rem;
 		text-align: center;
-		vertical-align: -0.2ex;
 	}
 	.book-layout{
 		display: block;
@@ -959,7 +958,7 @@
 		line-height: 1.1875rem;
 	}
 	.book-desc{
-		margin: 0.375rem 0;
+		margin: 0.2rem 0 0.3rem 0;
 		font-size: 0.8125rem;
 		color: #808080;
 		overflow: hidden;
