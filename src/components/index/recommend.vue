@@ -1,5 +1,5 @@
 <template>
-	<main>
+	<main class="recommend">
 		<!--头部-->
 		<header class="user-header" id="header">
 			<div class="head-left">
@@ -55,24 +55,31 @@
 	export default{
 		data(){
 			return{
-				scroll:'',
 				data:[],
 				hide:false
 			}
 		},
 		methods:{
 			handleScroll(){
-		    	this.scroll = document.documentElement.scrollTop || document.body.scrollTop;
-//		    	console.log(this.scroll);//到浏览器顶部的距离
-		    	if(this.scroll>=500){
-		    		this.hide=true
+				let that = this
+			    let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+			    that.scrollTop = scrollTop
+		    	if(that.scrollTop>=500){
+		    		that.hide=true
 		    	}else{
-		    		this.hide=false
+		    		that.hide=false
 		    	}
 			},
 			backTop() {
-	            document.documentElement.scrollTop = 0
-	        }
+				let that = this
+			    let timer = setInterval(() => {
+			        let ispeed = Math.floor(-that.scrollTop / 5)
+			        window.pageYOffset = document.documentElement.scrollTop = document.body.scrollTop = that.scrollTop + ispeed
+			        if (that.scrollTop === 0) {
+			          clearInterval(timer)
+			        }
+			    }, 16)
+	       	}
 		},
 		mounted(){
 		  	this.$http.get('./data/other-data.json')
@@ -94,9 +101,6 @@
 </script>
 
 <style scoped="scoped">
-	body{
-		background: #FFFFFF;
-	}
 	.user-header{
 		color: #FF3955;
 		background: white;
@@ -108,6 +112,9 @@
 </style>
 
 <style>
+	main.recommend{
+		background: #FFFFFF;
+	}
 	/*头部*/
 	.user-header{
 		width: 100%;

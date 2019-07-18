@@ -1,5 +1,5 @@
 <template>
-	<main>
+	<main class="login">
 		<div class="wrapper">
 			<img src="../../assets/img/login-top.png" alt="" class="top-img"/>
 			<div class="login-wrap">
@@ -129,7 +129,6 @@
 	}
 	.top-img{
 		width: 100%;
-		/*height: 1.6rem;*/
 	}
 	.login-wrap{
 		position: relative;

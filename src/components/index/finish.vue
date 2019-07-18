@@ -1,5 +1,5 @@
 <template>
-	<main>
+	<main class="finish">
 		<!--头部-->
 		<header class="user-header" id="header">
 			<div class="head-left">
@@ -221,7 +221,6 @@
 			return{
 				isTrue:false,
 				inPut:"",
-				scroll:'',
 				data:[],
 				hide:false
 			}
@@ -239,17 +238,25 @@
 				}
 			},
 			handleScroll(){
-		    	this.scroll = document.documentElement.scrollTop || document.body.scrollTop;
-//		    	console.log(this.scroll);//到浏览器顶部的距离
-		    	if(this.scroll>=50){
-		    		this.hide=true
+				let that = this
+			    let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+			    that.scrollTop = scrollTop
+		    	if(that.scrollTop>=500){
+		    		that.hide=true
 		    	}else{
-		    		this.hide=false
+		    		that.hide=false
 		    	}
 			},
 			backTop() {
-	            document.documentElement.scrollTop = 0
-	        },
+				let that = this
+			    let timer = setInterval(() => {
+			        let ispeed = Math.floor(-that.scrollTop / 5)
+			        window.pageYOffset = document.documentElement.scrollTop = document.body.scrollTop = that.scrollTop + ispeed
+			        if (that.scrollTop === 0) {
+			          clearInterval(timer)
+			        }
+			    }, 16)
+	       	},
 	        yes(){
 		    	searchPopup.style.visibility="visible";
 		       	searchInput.focus();
@@ -278,9 +285,6 @@
 </script>
 
 <style scoped="scoped">
-	body{
-		background: #F6F7F9;
-	}
 	.user-header{
 		color: #FF3955;
 		background: white;
@@ -291,7 +295,7 @@
 </style>
 
 <style>
-	body{
+	main.finish{
 		background: #F6F7F9;
 	}
 	/*头部*/

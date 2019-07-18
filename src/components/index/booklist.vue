@@ -1,5 +1,5 @@
 <template>
-	<main>
+	<main class="booklist">
 		<!--头部-->
 		<header class="user-header" id="header">
 			<div class="head-left">
@@ -170,6 +170,9 @@
 </style>
 
 <style>
+	main.booklist{
+		background: #FFF;
+	}
 	/*头部*/
 	.user-header{
 		width: 100%;

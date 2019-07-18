@@ -1,5 +1,5 @@
 <template>
-	<main>
+	<main class="welfare">
 		<!--头部-->
 		<header class="user-header" id="header">
 			<div class="head-left">
@@ -269,12 +269,10 @@
 
 <script>
 	export default{
-		inject:['reload'],
 		data(){
 			return{
 				isTrue:false,
 				inPut:"",
-				scroll:'',
 				data:[],
 				hide:false,
 				day:0,
@@ -296,17 +294,25 @@
 				}
 			},
 			handleScroll(){
-		    	this.scroll = document.documentElement.scrollTop || document.body.scrollTop;
-//		    	console.log(this.scroll);//到浏览器顶部的距离
-		    	if(this.scroll>=500){
-		    		this.hide=true
+				let that = this
+			    let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+			    that.scrollTop = scrollTop
+		    	if(that.scrollTop>=500){
+		    		that.hide=true
 		    	}else{
-		    		this.hide=false
+		    		that.hide=false
 		    	}
 			},
 			backTop() {
-	            document.documentElement.scrollTop = 0
-	      	},
+				let that = this
+			    let timer = setInterval(() => {
+			        let ispeed = Math.floor(-that.scrollTop / 5)
+			        window.pageYOffset = document.documentElement.scrollTop = document.body.scrollTop = that.scrollTop + ispeed
+			        if (that.scrollTop === 0) {
+			          clearInterval(timer)
+			        }
+			    }, 16)
+	       	},
 	      	yes(){
 		    	searchPopup.style.visibility="visible";
 		       	searchInput.focus();
@@ -331,7 +337,6 @@
 			    	that.countdown()
 			  	}, 1000)
 			}
-//	       this.reload();
 		},
 		mounted(){
 			this.$http.get('./data/welfare-data.json')
@@ -345,7 +350,7 @@
 		  		console.log('请求结束啦！')
 		  	})
 		  	window.addEventListener('scroll', this.handleScroll,true);
-		  	this.countdown()
+		  	this.countdown();
 		},
 		destroyed(){
 			window.removeEventListener('scroll', this.handleScroll);
@@ -354,9 +359,6 @@
 </script>
 
 <style scoped="scoped">
-	body{
-		background: #F6F7F9;
-	}
 	.user-header{
 		color: #FF3955;
 		background: white;
@@ -374,7 +376,7 @@
 </style>
 
 <style>
-	body{
+	main.welfare{
 		background: #F6F7F9;
 	}
 	/*头部*/
@@ -723,7 +725,7 @@
 		vertical-align: middle;
 		position: relative;
 		font-size: 0.75rem;
-		padding: 0 1px;
+		padding: 0 3px;
 	}
 	.time-hour::before, .time-minute::before, .time-second::before{
 		content: "";

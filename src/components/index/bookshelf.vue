@@ -1,5 +1,5 @@
 <template>
-	<main>
+	<main class="bookshelf">
 		<!--头部-->
 		<header class="user-header" id="header">
 			<div class="head-left">
@@ -194,9 +194,6 @@
 </script>
 
 <style scoped="scoped">
-	body{
-		background: #FFFFFF;
-	}
 	.user-header{
 		color: #FF3955;
 		background: white;
@@ -211,7 +208,7 @@
 </style>
 
 <style>
-	body{
+	main.bookshelf{
 		background: #FFFFFF;
 	}
 	/*头部*/
@@ -540,7 +537,7 @@
 	}
 	.list-cover{
 		position: absolute;
-		width: 20%;
+		width: 18%;
 	}
 	.list-cover.book1{
 		left: 1.875rem;

@@ -1,30 +1,16 @@
 <template>
   <div id="app">
-    <router-view v-if="isRouterAlive"></router-view>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
 export default {
   name: 'app',
-  provide(){
-  	return{
-  		reload:this.reload
-  	}
-  },
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App',
-      isRouterAlive:true
+      msg: 'Welcome to Your Vue.js App'
     }
-  },
-  methods:{
-  	reload(){
-  		this.isRouterAlive=false
-  		this.$nextTick(function(){
-  			this.isRouterAlive=true
-  		})
-  	}
   }
 }
 </script>

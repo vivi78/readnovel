@@ -1,5 +1,5 @@
 <template>
-	<main>
+	<main class="category">
 		<!--头部-->
 		<header class="user-header" id="header">
 			<div class="head-left">

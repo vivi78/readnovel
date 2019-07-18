@@ -1,5 +1,5 @@
 <template>
-	<main>
+	<main class="details">
 		<!--头部-->
 		<header class="user-header" id="header">
 			<div class="head-left">
@@ -259,7 +259,6 @@
 			return{
 				isTrue:false,
 				inPut:"",
-				scroll:'',
 				data:[],
 				hide:false
 			}
@@ -279,17 +278,25 @@
 				}
 			},
 			handleScroll(){
-		    	this.scroll = document.documentElement.scrollTop || document.body.scrollTop;
-//		    	console.log(this.scroll);
-		    	if(this.scroll>=500){
-		    		this.hide=true
+				let that = this
+			    let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+			    that.scrollTop = scrollTop
+		    	if(that.scrollTop>=500){
+		    		that.hide=true
 		    	}else{
-		    		this.hide=false
+		    		that.hide=false
 		    	}
 			},
-			backTop(){
-	            document.documentElement.scrollTop = 0
-	        },
+			backTop() {
+				let that = this
+			    let timer = setInterval(() => {
+			        let ispeed = Math.floor(-that.scrollTop / 5)
+			        window.pageYOffset = document.documentElement.scrollTop = document.body.scrollTop = that.scrollTop + ispeed
+			        if (that.scrollTop === 0) {
+			          clearInterval(timer)
+			        }
+			    }, 16)
+	       	},
 	        appear(){
 	       		bookSummary.style.height="auto";
 	       		down.style.visibility="hidden";
@@ -327,9 +334,6 @@
 </script>
 
 <style scoped="scoped">
-	body{
-		background: #F6F7F9;
-	}
 	.user-header{
 		color: #FF3955;
 		background: none;
@@ -340,7 +344,7 @@
 </style>
 
 <style>
-	body{
+	main.details{
 		background: #F6F7F9;
 	}
 	/*头部*/

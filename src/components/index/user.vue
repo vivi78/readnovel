@@ -1,5 +1,5 @@
 <template>
-	<main>
+	<main class="user">
 		<!--头部-->
 		<header class="user-header" id="header">
 			<div class="head-left">
@@ -225,20 +225,8 @@
 </style>
 
 <style>
-	*{
-		margin: 0;
-		padding: 0;
-	}
-	body{
-		line-height: 1.5;
-		color: #1A1A1A;
+	main.user{
 		background: #f6f7f9;
-	}
-	h1,h2,h3,h4,h5,h6{
-		font-size: 100%;
-	}
-	a{
-		text-decoration: none;
 	}
 	/*头部*/
 	.user-header{

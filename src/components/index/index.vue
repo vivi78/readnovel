@@ -1,5 +1,5 @@
 <template>
-	<main>
+	<main class="index">
 		<!--头部-->
 		<header class="header">
 			<router-link to="/index">
@@ -551,7 +551,7 @@
 				selected1:"1",
 				selected2:"1",
 				selected3:"1",
-				scroll:'',
+//				scroll:'',
 				data:[],
 				rank:[],
 				classify:[],
@@ -566,16 +566,24 @@
 		},
 		methods:{
 			handleScroll(){
-		    	this.scroll = document.documentElement.scrollTop || document.body.scrollTop;
-//		    	console.log(this.scroll);//到浏览器顶部的距离
-		    	if(this.scroll>=500){
-		    		this.hide=true
+				let that = this
+			    let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+			    that.scrollTop = scrollTop
+		    	if(that.scrollTop>=500){
+		    		that.hide=true
 		    	}else{
-		    		this.hide=false
+		    		that.hide=false
 		    	}
 			},
 			backTop() {
-	            document.documentElement.scrollTop = 0
+				let that = this
+			    let timer = setInterval(() => {
+			        let ispeed = Math.floor(-that.scrollTop / 5)
+			        window.pageYOffset = document.documentElement.scrollTop = document.body.scrollTop = that.scrollTop + ispeed
+			        if (that.scrollTop === 0) {
+			          clearInterval(timer)
+			        }
+			    }, 16)
 	       	},
 	       	yes(){
 	       		searchPopup.style.visibility="visible";
@@ -619,7 +627,7 @@
 		  	.finally(()=>{
 		  		console.log('请求结束啦！')
 		  	})
-			window.addEventListener('scroll', this.handleScroll,true);
+			window.addEventListener('scroll', this.handleScroll, true);
 			this.countdown();
 		},
 		destroyed(){
@@ -629,9 +637,6 @@
 </script>
 
 <style scoped="scoped">
-	body{
-		background: #F6F7F9;
-	}
 	.home-nav-li{
 		width: calc(100% / 5.3);
 	}
@@ -649,10 +654,12 @@
 	body{
 		line-height: 1.5;
 		color: #1A1A1A;
-		background: #F6F7F9;
 	}
 	a{
 		text-decoration: none;
+	}
+	main.index{
+		background: #F6F7F9;
 	}
 	.header{
 		/*width: 100%;
@@ -1054,7 +1061,7 @@
 		vertical-align: middle;
 		position: relative;
 		font-size: 0.75rem;
-		padding: 0 2px;
+		padding: 0 3px;
 	}
 	.time-hour::before, .time-minute::before, .time-second::before{
 		content: "";

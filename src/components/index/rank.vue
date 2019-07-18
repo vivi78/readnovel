@@ -1,5 +1,5 @@
 <template>
-	<main>
+	<main class="rank">
 		<!--头部-->
 		<header class="user-header" id="header">
 			<div class="head-left">
@@ -464,9 +464,6 @@
 </script>
 
 <style scoped="scoped">
-	body{
-		background: #FFFFFF;
-	}
 	.user-header{
 		color: #FF3955;
 		background: white;
@@ -480,7 +477,7 @@
 </style>
 
 <style>
-	body{
+	main.rank{
 		background: #FFFFFF;
 	}
 	/*头部*/
