@@ -90,10 +90,27 @@
 		<div class="center-header">
 			<img src="../../assets/img/user.jpg" alt="" class="center-header-img"/>
 			<p class="center-header-p">
-				<span class="user-name">小阅书友111111000000</span>
-				<i class="iconfont">&#xe63a;</i>
+				<span class="user-name">{{username}}</span>
+				<i class="iconfont" @click="amend()">&#xe63a;</i>
 			</p>
 		</div>
+		<!--修改名字-->
+		<transition enter-active-class="animated fadeIn" leave-active-class="animated fadeOut">
+			<aside class="aside" v-show="isShow">
+				<i class="aside-overlay" @click="abolish()"></i>
+				<div class="aside-popup">
+					<form class="aside-input">
+						<div class="input-btn">
+							<button class="btn-cancel" id="cancel" @click="abolish()">取消</button>
+							<button type="submit" class="btn-save" id="save" @click="hold()">保存</button>
+						</div>
+						<div class="input-text">
+							<textarea class="input-word" placeholder="请输入2-12个汉字、数字或字母" id="nickname"></textarea>
+						</div>
+					</form>
+				</div>
+			</aside>
+		</transition>
 		<div class="module module-merge of">
 			<span class="book-money">0阅币<i class="iconfont">&#xe627;</i></span>
 			<div class="center-rel">
@@ -161,6 +178,7 @@
 				</li>
 			</ul>
 		</nav>
+		<!--退出登录-->
 		<div class="module">
 			<router-link to="/login" class="center-logout">退出登录</router-link>
 		</div>
@@ -178,11 +196,14 @@
 </template>
 
 <script>
+	import { Toast } from 'mint-ui';
 	export default{
 		data(){
 			return{
 				isTrue:false,
-				inPut:""
+				isShow:false,
+				inPut:"",
+				username:"小阅书友111111000000"
 			}
 		},
 		methods:{
@@ -209,6 +230,22 @@
 		    },
 		    no(){
 		       	searchPopup.style.visibility="hidden";
+		    },
+		    amend(){
+		    	this.isShow=true;
+		    },
+		    abolish(){
+		    	this.isShow=false;
+		    },
+		    hold(){
+		    	console.log(nickname.value);
+		    	if(nickname.value==""){
+		    		Toast('昵称不能为空');
+		    	}else{
+		    		this.username=nickname.value;
+		    		this.isShow=false;
+		    		nickname.value="";
+		    	}
 		    }
 		}
 	}
@@ -683,5 +720,68 @@
 		text-align: center;
 		margin: 0.5rem 0.5rem 0 0;
 		color: #808080;
+	}
+	/*修改昵称*/
+	.aside{
+		position: fixed;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		overflow: hidden;
+		z-index: 3;
+		animation-duration: 0.1s;
+	}
+	.aside-overlay{
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		background-color: #000;
+		opacity: 0.6;
+	}
+	.aside-popup{
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		background-color: #FFFFFF;
+	}
+	.input-btn{
+		border-bottom: 1px solid #F0F1F2;
+		overflow: hidden;
+	}
+	.btn-cancel, .btn-save{
+		width: 40%;
+		line-height: 2.75rem;
+		border: 0;
+		background-color: #FFFFFF;
+		padding: 0;
+		outline: none;
+		font-size: 0.875rem;
+	}
+	.btn-cancel{
+		float: left;
+		text-align: left;
+		margin-left: 1rem;
+	}
+	.btn-save{
+		color: #FF3955;
+		float: right;
+		text-align: right;
+		margin-right: 1rem;
+	}
+	.input-text{
+		padding: 1rem;
+	}
+	.input-word{
+		border: 0;
+		padding: 0;
+		width: 100%;
+		height: 5.5rem;
+		resize: none;
+		outline: 0 none;
+		font-size: 1rem;
 	}
 </style>

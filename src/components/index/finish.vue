@@ -582,7 +582,7 @@
 		overflow: hidden;
 		line-height: 0.75rem;
 		margin-left: -3px;
-		vertical-align: middle;
+		vertical-align: -0.5ex;
 	}
 	.tag-small-group{
 		position: absolute;

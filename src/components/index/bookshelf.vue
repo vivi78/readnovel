@@ -21,6 +21,10 @@
 			  <mt-tab-container-item id="1">
 			    <div class="tab-box">
 			    	<div class="tab-header">
+			    		<div class="tab-l">
+			    			<span>共2本</span>
+			    			<router-link to="/compile">编辑</router-link>
+			    		</div>
 			    		<router-link to="/booklist" class="tab-a">我的书单</router-link>
 			    	</div>
 			    	<div class="tab-list">
@@ -42,15 +46,66 @@
 			    			</div>
 			    			<i class="iconfont">&#xe627;</i>
 			    		</router-link>
-			    		<div class="tab-null">
+			    		<!--<div class="tab-null">
 			    			<img src="../../assets/img/book.svg"/>你的分组是空的
-			    		</div>
+			    		</div>-->
+			    		<div class="tab-box">
+					    	<ol>
+					    		<li>
+									<router-link to="/details" class="book-layout" style="padding: 1rem 0;">
+										<img src="../../assets/img/details.jpg" alt="" class="tab-book"/>
+										<div class="book-cell">
+											<div class="book-title-x">
+												<h4 class="book-title">嫡女复仇逆袭记</h4>
+												<div class="book-title-r">
+													继续阅读<i class="iconfont">&#xe627;</i>
+													<p>5小时前</p>
+												</div>
+											</div>
+											<p><i class="iconfont">&#xe608;</i>胡瓜叶 | 读至第一章</p>
+											<p>更新至 第一百章 皇帝的算计</p>
+										</div>
+									</router-link>
+								</li><li>
+									<router-link to="/details" class="book-layout" style="padding: 1rem 0;">
+										<img src="../../assets/img/list.jpg" alt="" class="tab-book"/>
+										<div class="book-cell">
+											<div class="book-title-x">
+												<h4 class="book-title">余生漫漫皆为你</h4>
+												<div class="book-title-r">
+													继续阅读<i class="iconfont">&#xe627;</i>
+													<p>3个月前</p>
+												</div>
+											</div>
+											<p><i class="iconfont">&#xe608;</i>浮屠妖 | 读至第6章</p>
+											<p>更新至 2019，新书来啦！</p>
+										</div>
+									</router-link>
+								</li>
+							</ol>
+					    </div>
 			    	</div>
 			    </div>
 			  </mt-tab-container-item>
 			  <mt-tab-container-item id="2">
 			    <div class="tab-box">
 			    	<ol>
+			    		<li>
+							<router-link to="/details" class="book-layout">
+								<img src="../../assets/img/details.jpg" alt="" class="tab-book"/>
+								<div class="book-cell">
+									<div class="book-title-x">
+										<h4 class="book-title">嫡女复仇逆袭记</h4>
+										<div class="book-title-r">
+											继续阅读<i class="iconfont">&#xe627;</i>
+											<p>1小时前</p>
+										</div>
+									</div>
+									<p><i class="iconfont">&#xe608;</i>胡瓜叶</p>
+									<p>读至 第一章 香消玉殒</p>
+								</div>
+							</router-link>
+						</li>
 						<li>
 							<router-link to="/details" class="book-layout">
 								<img src="../../assets/img/list.jpg" alt="" class="tab-book"/>
@@ -284,7 +339,7 @@
 		overflow: hidden;
 	}
 	.guide-nav-li{
-		width: calc(100%/3);
+		width: calc(100% / 3);
 		margin: 0;
 		display: inline-block;
 	}
@@ -476,10 +531,9 @@
 	}
 	.tab-content{
 		position: relative;
-		/*top: 2.75rem;*/
 		top: 0;
 		overflow: hidden;
-		min-height: calc(100vh - (84rem / 16));
+		min-height: calc(100vh - (120rem / 16));
 		background-color: #FFFFFF;
 	}
 	.tab .mint-tab-item{
@@ -599,6 +653,17 @@
 		margin: auto;
 		margin-bottom: 0.75rem;
 	}
+	.tab-l{
+		float: left;
+		margin-top: 1.5rem;
+		margin-left: 1rem;
+	}
+	.tab-l span{
+		font-weight: 600;
+	}
+	.tab-l a{
+		color: #5B92E9;
+	}
 	/*最近阅读*/
 	.book-layout{
 		display: block;
@@ -642,12 +707,15 @@
 		font-size: 0.8125rem;
 		color: #808080;
 	}
-	.tab-li-more::before{
+	.tab-box ol li::after{
 		content: "";
 		display: block;
 		border-top: 1px solid #F0F1F2;
 		margin-top: -1px;
 		margin-left: 1rem;
+	}
+	.tab-box ol li:last-child::after{
+		border-top: none;
 	}
 	.tab-book{
 		display: inline-block;

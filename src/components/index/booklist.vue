@@ -428,7 +428,7 @@
 	}
 	/*书单*/
 	.booklist-content{
-		min-height: calc(100vh - (134rem / 16));
+		min-height: calc(100vh - (132rem / 16));
 	}
 	.booklist-content .mint-navbar{
 		width: 55%;

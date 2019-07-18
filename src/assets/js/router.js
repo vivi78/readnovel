@@ -10,6 +10,7 @@ import details from '../../components/index/details.vue';
 import user from '../../components/index/user.vue';
 import bookshelf from '../../components/index/bookshelf.vue';
 import booklist from '../../components/index/booklist.vue';
+import compile from '../../components/index/compile.vue';
 import recommend from '../../components/index/recommend.vue';
 import login from '../../components/index/login.vue';
 
@@ -62,6 +63,10 @@ export default new VueRouter({
 		{
 			path:'/booklist',
 			component:booklist
+		},
+		{
+			path:'/compile',
+			component:compile
 		},
 		{
 			path:'/recommend',

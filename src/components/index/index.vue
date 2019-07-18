@@ -965,7 +965,7 @@
 		line-height: 1.1875rem;
 	}
 	.book-desc{
-		margin: 0.2rem 0 0.3rem 0;
+		margin: 0.5rem 0;
 		font-size: 0.8125rem;
 		color: #808080;
 		overflow: hidden;
