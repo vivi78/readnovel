@@ -39,7 +39,7 @@
 		<!--导航-->
 		<div class="guide" id="guide">
 			<transition enter-active-class="animated fadeIn" leave-active-class="animated fadeOut">
-				<span class="guide-overlay" v-show="isTrue"></span>
+				<span class="guide-overlay" v-show="isTrue" @click="show()"></span>
 			</transition>
 			<transition enter-active-class="animated slideInDown" leave-active-class="animated slideOutUp">
 				<div class="guide-content" v-show="isTrue">

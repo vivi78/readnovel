@@ -38,7 +38,7 @@
 		<!--导航-->
 		<div class="guide" id="guide">
 			<transition enter-active-class="animated fadeIn" leave-active-class="animated fadeOut">
-				<span class="guide-overlay" v-show="isTrue"></span>
+				<span class="guide-overlay" v-show="isTrue" @click="show()"></span>
 			</transition>
 			<transition enter-active-class="animated slideInDown" leave-active-class="animated slideOutUp">
 				<div class="guide-content" v-show="isTrue">
@@ -128,7 +128,7 @@
 					这一世，很爽，绝不脑残，善恶交错。<br />
 				</div>
 				<span class="book-summary-more" @click="appear()"  id="down">
-					<i class="iconfont">&#xe61b;</i>
+					<i class="iconfont">&#xe61c;</i>
 				</span>
 			</section>
 			<div class="book-status">
