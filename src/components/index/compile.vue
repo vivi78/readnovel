@@ -3,7 +3,7 @@
 		<header class="compile-header">
 			<span @click="selectAll()">全选</span>
 			<router-link to="/bookshelf">取消</router-link>
-			<h3>共1本</h3>
+			<h3>共2本</h3>
 		</header>
 		<div class="tab-box">
 	    	<ol>
@@ -91,8 +91,15 @@
 			},
 			selectAll(){
 				this.show1=!this.show1
-				this.show2=!this.show2
-				this.isShow=!this.isShow
+					this.show2=!this.show2
+					this.isShow=!this.isShow
+				if(this.show1==true){
+					this.show2=true
+					this.isShow=true
+				}else if(this.show2==true){
+					this.show1=true
+					this.isShow=true
+				}
 			},
 			remove(){
 				Toast('抱歉暂时不支持此功能哦！');
